@@ -1,0 +1,117 @@
+{
+  "log": {
+    "disabled": false,
+    "level": "info",
+    "timestamp": true
+  },
+  "inbounds": [
+    {
+      "type": "vless",
+      "tag": "vless-in-apple", //这是偷别人的
+      "listen": "::",
+      "listen_port": 8012, //对应nginx中reality1转发的端口
+      "users": [
+        {
+          "uuid": "8000007f-2987-4e28-8c97-dedc6e267e66", //sing-box generate uuid
+          "flow": "xtls-rprx-vision"
+        }
+      ],
+      "tls": {
+        "enabled": true,
+        "server_name": "itunes.apple.com", //对应nginx中reality1对应的域名,偷取别人的域名
+        "reality": {
+          "enabled": true,
+          "handshake": {
+            "server": "itunes.apple.com", //对应nginx中reality1对应的域名
+            "server_port": 443
+          },
+          "private_key": "-EvwBHASxZu000000000GCI9Z5Pf0000tPyDPI8ci2g", //sing-box generate reality-keypair
+          "short_id": [
+            "5267fe000000b7f6" //sing-box generate rand --hex 8
+          ]
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "vless-in-self", //偷自己
+      "listen": "::",
+      "listen_port": 8013, //对应nginx中reality2转发的端口
+      "users": [
+        {
+          "uuid": "8000007f-2987-4e28-8c97-dedc6e267e66", //sing-box generate uuid
+          "flow": "xtls-rprx-vision"
+        }
+      ],
+      "tls": {
+        "enabled": true,
+        "server_name": "reality.example.com", //对应nginx中reality1对应的域名,偷取自己的域名
+        "reality": {
+          "enabled": true,
+          "handshake": {
+            "server": "reality.example.com", //对应nginx中reality1对应的域名
+            "server_port": 8003 //对应nginx中reality.example.com的server对应的端口
+          },
+          "private_key": "-EvwBHASxZuM8aGg50000000000PtPyDPI8ci2g", //sing-box generate reality-keypair
+          "short_id": [
+            "5267fe00000cb7f6" //sing-box generate rand --hex 8
+          ]
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "vless-in-self", //偷自己
+      "listen": "::",
+      "listen_port": 8013, //对应nginx中reality2转发的端口
+      "users": [
+        {
+          "uuid": "8000007f-2987-4e28-8c97-dedc6e267e66", //sing-box generate uuid
+          "flow": "xtls-rprx-vision"
+        }
+      ],
+      "tls": {
+        "enabled": true,
+        "server_name": "reality.example.com", //对应nginx中reality1对应的域名,偷取自己的域名
+        "reality": {
+          "enabled": true,
+          "handshake": {
+            "server": "reality.example.com", //对应nginx中reality1对应的域名
+            "server_port": 8003 //对应nginx中reality.example.com的server对应的端口
+          },
+          "private_key": "-EvwBHASxZuM8aGg50000000000PtPyDPI8ci2g", //sing-box generate reality-keypair
+          "short_id": [
+            "5267fe00000cb7f6" //sing-box generate rand --hex 8
+          ]
+        }
+      }
+    } ,
+    {
+      "type": "vless",
+      "tag": "vless-in-ws",
+      "listen": "::",
+      "listen_port": 8014,
+      "users": [
+        {
+        "name": "mianayang",
+        "uuid": "bf000d23-0752-40b4-affe-68f7707a9661", //sing-box generate uuid
+        "flow": ""
+        }
+      ],
+      "transport": {
+        "type": "ws",
+        "path": "xctxabc" //对应nginx中的ws path
+        }
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ]
+}
