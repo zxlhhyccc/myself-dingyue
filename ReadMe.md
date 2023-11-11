@@ -18,7 +18,7 @@ bash <(curl -Ls unlock.moe)
 2. sing-box hy2 ws reality三合一脚本
 
 ```
-bash <(curl -fsSL https://github.com/vveg26/sing-box-reality-hysteria2/raw/main/reality_hy2_ws.sh)
+bash <(curl -fsSL https://github.com/vveg26/sing-box-reality-hysteria2/raw/main/beta.sh)
 ```
 
 3. 证书一键申请
@@ -26,7 +26,7 @@ bash <(curl -fsSL https://github.com/vveg26/sing-box-reality-hysteria2/raw/main/
 ```
 bash <(curl -Ls https://raw.githubusercontent.com/vveg26/myself/main/BashScript/SSLAutoInstall/SSLAutoInstall.sh)
 ```
-4. nginx一键申请
+4. nginx
 
  安装
 ```
