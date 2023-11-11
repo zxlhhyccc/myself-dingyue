@@ -45,11 +45,11 @@
       ],
       "tls": {
         "enabled": true,
-        "server_name": "reality.example.com", //对应nginx中reality1对应的域名,偷取自己的域名
+        "server_name": "reality.example.com", //客户端可用的域名，对应nginx中reality1对应的域名,偷取自己的域名
         "reality": {
           "enabled": true,
           "handshake": {
-            "server": "reality.example.com", //对应nginx中reality1对应的域名
+            "server": "127.0.0.1", //因为是本地，所以只要填个回环地址
             "server_port": 8003 //对应nginx中reality.example.com的server对应的端口
           },
           "private_key": "-EvwBHASxZuM8aGg50000000000PtPyDPI8ci2g", //sing-box generate reality-keypair
@@ -59,33 +59,6 @@
         }
       }
     },
-    {
-      "type": "vless",
-      "tag": "vless-in-self", //偷自己
-      "listen": "::",
-      "listen_port": 8013, //对应nginx中reality2转发的端口
-      "users": [
-        {
-          "uuid": "8000007f-2987-4e28-8c97-dedc6e267e66", //sing-box generate uuid
-          "flow": "xtls-rprx-vision"
-        }
-      ],
-      "tls": {
-        "enabled": true,
-        "server_name": "reality.example.com", //对应nginx中reality1对应的域名,偷取自己的域名
-        "reality": {
-          "enabled": true,
-          "handshake": {
-            "server": "reality.example.com", //对应nginx中reality1对应的域名
-            "server_port": 8003 //对应nginx中reality.example.com的server对应的端口
-          },
-          "private_key": "-EvwBHASxZuM8aGg50000000000PtPyDPI8ci2g", //sing-box generate reality-keypair
-          "short_id": [
-            "5267fe00000cb7f6" //sing-box generate rand --hex 8
-          ]
-        }
-      }
-    } ,
     {
       "type": "vless",
       "tag": "vless-in-ws",
