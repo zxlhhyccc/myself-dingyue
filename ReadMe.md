@@ -23,7 +23,10 @@ bash <(curl -Ls unlock.moe)
  #如果vps厂商只提供了私钥，则用此命令登陆
  ssh -i /path/key user@your_server_ip
  ```
-
+brew安装
+ ```bash
+  bash <(curl -Ls https://raw.githubusercontent.com/vveg26/myself/main/BashScript/brew/install.sh)
+ ```
  
 **3. sing-box hy2 ws reality三合一脚本**
 
