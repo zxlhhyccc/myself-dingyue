@@ -10,27 +10,33 @@ curl https://raw.githubusercontent.com/zhanghanyun/backtrace/main/install.sh -sS
 bash <(curl -Ls unlock.moe)
 ```
 ## 脚本文件
-1. git一键配置
+**1. git一键配置**
 
  ```bash
   bash <(curl -Ls https://raw.githubusercontent.com/vveg26/myself/main/BashScript/GitConfig/GitConfig.sh)
  ```
- vps ssh配置
+**2. vps ssh配置**
  ```bash
   bash <(curl -Ls https://raw.githubusercontent.com/vveg26/myself/main/BashScript/sshconfig.sh)
  ```
-2. sing-box hy2 ws reality三合一脚本
+ ```bash
+ #如果vps厂商只提供了私钥，则用此命令登陆
+ ssh -i /path/key user@your_server_ip
+ ```
+
+ 
+**3. sing-box hy2 ws reality三合一脚本**
 
 ```bash
 bash <(curl -fsSL https://github.com/vveg26/sing-box-reality-hysteria2/raw/main/beta.sh)
 ```
 
-3. 证书一键申请
+**4. 证书一键申请**
 
 ```bash
 bash <(curl -Ls https://raw.githubusercontent.com/vveg26/myself/main/BashScript/SSLAutoInstall/SSLAutoInstall.sh)
 ```
-4. nginx
+**5. nginx**
 
  安装
 ```bash
@@ -44,11 +50,11 @@ bash <(curl -Ls https://raw.githubusercontent.com/vveg26/myself/main/BashScript/
 ```bash
 bash <(curl -Ls https://raw.githubusercontent.com/vveg26/myself/main/BashScript/nginx-onekey/ngx.sh) --update
 ```
-5. docker官方脚本
+**6. docker官方脚本**
 ```bash
 curl -fsSL https://get.docker.com | bash -s docker
 ```
-6. 面板类
+**7. 面板类**
 casaos
 ```bash
 curl -fsSL https://get.casaos.io | sudo bash
