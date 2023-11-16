@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 拼接完整的文件路径
-ssh_key_file="~/.ssh/id_rsa"
+ssh_key_file="$HOME/.ssh/id_rsa"
 
 # 检查文件是否存在
 if [ -e "$ssh_key_file" ]; then
