@@ -12,13 +12,13 @@ bash <(curl -Ls unlock.moe)
 ## 脚本文件
 1. git一键配置
 
-```bash
- bash <(curl -Ls https://raw.githubusercontent.com/vveg26/myself/main/BashScript/GitConfig/GitConfig.sh)
-```
-vps ssh配置
-```bash
- bash <(curl -Ls https://raw.githubusercontent.com/vveg26/myself/main/BashScript/sshconfig.sh)
-```
+ ```bash
+  bash <(curl -Ls https://raw.githubusercontent.com/vveg26/myself/main/BashScript/GitConfig/GitConfig.sh)
+ ```
+ vps ssh配置
+ ```bash
+  bash <(curl -Ls https://raw.githubusercontent.com/vveg26/myself/main/BashScript/sshconfig.sh)
+ ```
 2. sing-box hy2 ws reality三合一脚本
 
 ```bash
