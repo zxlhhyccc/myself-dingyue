@@ -15,6 +15,10 @@ bash <(curl -Ls unlock.moe)
 ```bash
  bash <(curl -Ls https://raw.githubusercontent.com/vveg26/myself/main/BashScript/GitConfig/GitConfig.sh)
 ```
+vps ssh配置
+```bash
+ bash <(curl -Ls https://raw.githubusercontent.com/vveg26/myself/main/BashScript/sshconfig.sh)
+```
 2. sing-box hy2 ws reality三合一脚本
 
 ```bash
