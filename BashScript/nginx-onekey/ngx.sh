@@ -26,6 +26,12 @@ install_nginx() {
         sudo apt update
         sudo apt install -y curl gnupg2 ca-certificates lsb-release
         
+        if [ "$ID" == "debian" ]; then
+            sudo apt install -y debian-archive-keyring
+        elif [ "$ID" == "ubuntu" ]; then
+            sudo apt install -y ubuntu-keyring
+        fi
+        
         curl https://nginx.org/keys/nginx_signing.key | sudo gpg --dearmor --output /usr/share/keyrings/nginx-archive-keyring.gpg
         
         echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/$ID $VERSION_CODENAME nginx" \
@@ -37,11 +43,11 @@ install_nginx() {
         sudo apt update
         sudo apt install -y nginx
     elif [ "$PACKAGE_MANAGER" == "yum" ]; then
-    # 安装 yum-utils
-    sudo yum install -y yum-utils
+        # 安装 yum-utils
+        sudo yum install -y yum-utils
     
-    # 创建 Nginx 的 yum 仓库文件
-    sudo tee /etc/yum.repos.d/nginx.repo > /dev/null <<EOT
+        # 创建 Nginx 的 yum 仓库文件
+        sudo tee /etc/yum.repos.d/nginx.repo > /dev/null <<EOT
 [nginx-stable]
 name=nginx stable repo
 baseurl=http://nginx.org/packages/centos/\$releasever/\$basearch/
@@ -59,17 +65,16 @@ gpgkey=https://nginx.org/keys/nginx_signing.key
 module_hotfixes=true
 EOT
     
-    #sudo yum update -y
-    # 启用 mainline 版本的 Nginx 仓库
-    sudo yum-config-manager --enable nginx-mainline
+        #sudo yum update -y
+        # 启用 mainline 版本的 Nginx 仓库
+        sudo yum-config-manager --enable nginx-mainline
     
-    # 安装 Nginx
-    sudo yum install -y nginx
+        # 安装 Nginx
+        sudo yum install -y nginx
     fi
 
-    echo "Nginx has been successfully installed."
+    echo "Nginx 已成功安装。"
 }
-
 # 卸载nginx
 uninstall_nginx() {
     # 停止nginx服务
