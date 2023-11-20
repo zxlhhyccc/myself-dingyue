@@ -33,7 +33,7 @@ async function handleRequest(request) {
     }
   
     let req_data = "";
-  
+    req_data += MainData
     if (tag) {
         switch (tag) {
           case 'jichang':
@@ -45,7 +45,7 @@ async function handleRequest(request) {
                 req_data += atob(content);
               }
             }
-            req_data += MainData
+            
             break;
     
           default:
