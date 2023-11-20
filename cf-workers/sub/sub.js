@@ -28,7 +28,7 @@ async function handleRequest(request) {
     const token = url.searchParams.get('token'); // Get the token from the URL
 
     if (token !== mytoken) {
-      await sendMessage("#Token错误信息", request.headers.get('CF-Connecting-IP'), `Invalid Token: ${token}`);
+      //await sendMessage("#Token错误信息", request.headers.get('CF-Connecting-IP'), `Invalid Token: ${token}`);
       return new Response('Invalid token???', { status: 403 });
     }
   
@@ -49,15 +49,10 @@ async function handleRequest(request) {
             break;
     
           default:
-            req_data = MainData;
+            
             break;
       }
-    } else {// 如果未找到 tag 参数，则只生成自建节点
-      // const bytes = new Uint8Array(Math.floor(Math.random() * 100));
-      // crypto.getRandomValues(bytes);
-      // req_data = String.fromCharCode.apply(null, bytes);
-      req_data = MainData;
-    }
+    } 
   
     await sendMessage("#访问信息", request.headers.get('CF-Connecting-IP'), `Tag: ${tag}`);
     return new Response(btoa(req_data));
