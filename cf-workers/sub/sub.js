@@ -1,7 +1,7 @@
 // 默认节点信息
 
-// 部署完成后在网址后面加上获取机场聚合，/?token=xxoo&tag=jichang
-// 部署完成后在网址后面加上获取自建，/?token=xxoo
+// 部署完成后在网址后面加上这个，获取自建节点和机场聚合节点，/?token=xxoo&tag=jichang
+// 部署完成后在网址后面加上这个，只获取自建节点，/?token=xxoo
 
 
 const mytoken = 'xxoo'; //可以随便取，或者uuid生成，https://1024tools.com/uuid
@@ -12,7 +12,7 @@ const MainData = `
 ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxlLmNvbQ@example1.com:443#example1
 ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxlLmNvbQ@example2.com:443#example2
 `
-//机场信息，可多个
+//机场信息，可多个，也可为0
 const urls = [
   'https://mareep.netlify.app/sub/shadowrocket_base64.txt',
   'https://mareep.netlify.app/sub/shadowrocket_base64.txt'
