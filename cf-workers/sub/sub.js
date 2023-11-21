@@ -7,11 +7,13 @@
 const mytoken = 'xxoo'; //可以随便取，或者uuid生成，https://1024tools.com/uuid
 const tgbottoken =''; //可以为空，或者@BotFather中输入/start，/newbot，并关注机器人
 const tgchatid =''; //可以为空，或者@userinfobot中获取，/start
+
 //自建节点
 const MainData = `
 ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxlLmNvbQ@example1.com:443#example1
 ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxlLmNvbQ@example2.com:443#example2
 `
+
 //机场信息，可多个，也可为0
 const urls = [
   'https://mareep.netlify.app/sub/shadowrocket_base64.txt',
