@@ -57,8 +57,4 @@ bash <(curl -Ls https://raw.githubusercontent.com/vveg26/myself/main/BashScript/
 ```bash
 curl -fsSL https://get.docker.com | bash -s docker
 ```
-**7. 面板类**
-casaos
-```bash
-curl -fsSL https://get.casaos.io | sudo bash
-```
+
