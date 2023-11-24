@@ -44,7 +44,7 @@ async function handleRequest(request) {
             for (const response of responses) {
               if (response.ok) {
                 const content = await response.text();
-                req_data += atob(content);
+                req_data += atob(content) + '\n';
               }
             }
             
