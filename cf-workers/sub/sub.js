@@ -1,4 +1,3 @@
-// 默认节点信息
 
 // 部署完成后在网址后面加上这个，获取自建节点和机场聚合节点，/?token=xxoo&tag=jichang
 // 部署完成后在网址后面加上这个，只获取自建节点，/?token=xxoo
@@ -57,7 +56,10 @@ async function handleRequest(request) {
     } 
   
     await sendMessage("#访问信息", request.headers.get('CF-Connecting-IP'), `Tag: ${tag}`);
-    return new Response(btoa(req_data));
+    //修复中文错误
+    const encodedData = utf8Encoder.encode(req_data);
+    const base64Data = btoa(String.fromCharCode.apply(null, encodedData));
+    return new Response(base64Data);
   }
   
 
