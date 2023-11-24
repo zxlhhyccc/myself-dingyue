@@ -22,7 +22,45 @@ const urls = [
 
 // other可以为空，如果填写，可以填写clash配置文件，或其他任何乱七八糟的内容
 const other = `
-这块地方可以随便修改成你自己的yaml配置文件
+mode: rule
+mixed-port: 7890
+allow-lan: false
+log-level: info
+secret: ''
+external-controller: 127.0.0.1:9090
+proxy-groups:
+- name: 节点选择
+  type: select
+  proxies:
+  - 自动选择
+  - DIRECT
+  use:
+  - jichang
+- name: 自动选择
+  type: url-test
+  use:
+  - jichang
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+proxy-providers:
+  jichang:
+    type: http
+    url: https://yyy.piig.top/?token=xxoo&tag=jichang
+    interval: 3600
+    path: ./sub/jichang.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: https://www.gstatic.com/generate_204
+rules:
+- DOMAIN,clash.razord.top,DIRECT
+- DOMAIN,yacd.haishan.me,DIRECT
+- GEOIP,LAN,DIRECT
+- GEOIP,CN,DIRECT
+- GEOSITE,CN,DIRECT
+- MATCH,节点选择
+
 `;
 
 
@@ -67,7 +105,15 @@ async function handleRequest(request) {
     } 
   
     await sendMessage("#访问信息", request.headers.get('CF-Connecting-IP'), `Tag: ${tag}`);
-    return new Response(btoa(req_data));
+
+    // 如果tag为'other'，直接返回原始数据
+    if (tag === 'other') {
+      return new Response(req_data);
+    }
+    const utf8Encoder = new TextEncoder();
+    const encodedData = utf8Encoder.encode(req_data);
+    const base64Data = btoa(String.fromCharCode.apply(null, encodedData));
+    return new Response(base64Data);
   }
   
 
