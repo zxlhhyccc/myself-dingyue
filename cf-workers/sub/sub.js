@@ -57,6 +57,7 @@ async function handleRequest(request) {
   
     await sendMessage("#访问信息", request.headers.get('CF-Connecting-IP'), `Tag: ${tag}`);
     //修复中文错误
+    const utf8Encoder = new TextEncoder();
     const encodedData = utf8Encoder.encode(req_data);
     const base64Data = btoa(String.fromCharCode.apply(null, encodedData));
     return new Response(base64Data);
