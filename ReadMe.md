@@ -57,4 +57,6 @@ bash <(curl -Ls https://raw.githubusercontent.com/vveg26/myself/main/BashScript/
 ```bash
 curl -fsSL https://get.docker.com | bash -s docker
 ```
-
+```bash
+curl -sSL curl -Ls https://raw.githubusercontent.com/vveg26/myself/main/BashScript/tools/reality-scanner.sh | bash
+```
