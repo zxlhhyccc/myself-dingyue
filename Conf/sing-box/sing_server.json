@@ -49,7 +49,7 @@
         "reality": {
           "enabled": true,
           "handshake": {
-            "server": "127.0.0.1", //因为是本地，所以只要填个回环地址
+            "server": "::", //因为是本地，所以只要填个回环地址127.0.0.1,或者直接填::
             "server_port": 8003 //对应nginx中reality.example.com的server对应的端口
           },
           "private_key": "-EvwBHASxZuM8aGg50000000000PtPyDPI8ci2g", //sing-box generate reality-keypair
