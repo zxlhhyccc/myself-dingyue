@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # 安装Git
-echo "Installing Git..."
-sudo apt-get install git -y
+#echo "Installing Git..."
+#sudo apt-get install git -y
 
 # 配置用户名和邮箱
 read -p "Enter your name: " name
