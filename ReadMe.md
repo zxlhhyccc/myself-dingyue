@@ -62,3 +62,13 @@ reality扫描
 ```bash
 bash <(curl -Ls https://raw.githubusercontent.com/vveg26/myself/main/BashScript/tools/realityscanner.sh)
 ```
+
+swap开启卸载
+ 安装
+```bash
+bash <(curl -Ls https://raw.githubusercontent.com/vveg26/myself/main/BashScript/swap.sh) --install
+```
+ 卸载
+```bash
+bash <(curl -Ls https://raw.githubusercontent.com/vveg26/myself/main/BashScript/swap.sh) --uninstall
+```
