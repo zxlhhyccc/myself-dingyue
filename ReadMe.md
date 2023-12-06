@@ -9,6 +9,10 @@ curl https://raw.githubusercontent.com/zhanghanyun/backtrace/main/install.sh -sS
 ```bash
 bash <(curl -Ls unlock.moe)
 ```
+3. dd
+仓库
+https://github.com/veip007/dd
+
 ## 脚本文件
 **1. git一键配置**
 
